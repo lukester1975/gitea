@@ -4,11 +4,11 @@
 		<div class="ui form">
 			<div class="field">
 				<label>{{svg "octicon-terminal"}} {{.locale.Tr "packages.conan.registry"}}</label>
-				<div class="markup"><pre class="code-block"><code>conan remote add gitea <gitea-origin-url data-url="{{AppSubUrl}}/api/packages/{{.PackageDescriptor.Owner.Name}}/conan"></gitea-origin-url></code></pre></div>
+				<div class="markup"><pre class="code-block"><code>conan remote add {{.PackageDescriptor.Owner.Name}} <gitea-origin-url data-url="{{AppSubUrl}}/api/packages/{{.PackageDescriptor.Owner.Name}}/conan"></gitea-origin-url></code></pre></div>
 			</div>
 			<div class="field">
 				<label>{{svg "octicon-terminal"}} {{.locale.Tr "packages.conan.install"}}</label>
-				<div class="markup"><pre class="code-block"><code>conan install --remote=gitea {{.PackageDescriptor.Package.Name}}/{{.PackageDescriptor.Version.Version}}</code></pre></div>
+				<div class="markup"><pre class="code-block"><code>conan install --remote={{.PackageDescriptor.Owner.Name}} {{.PackageDescriptor.Package.Name}}/{{.PackageDescriptor.Version.Version}}</code></pre></div>
 			</div>
 			<div class="field">
 				<label>{{.locale.Tr "packages.registry.documentation" "Conan" "https://docs.gitea.com/usage/packages/conan/" | Safe}}</label>
